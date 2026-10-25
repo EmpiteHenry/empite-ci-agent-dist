@@ -58,7 +58,7 @@ if [[ -f "$UNIT" ]]; then
     fi
     $SUDO rm -f "$UNIT"
 fi
-command -v systemctl >/dev/null 2>&1 && $SUDO systemctl daemon-reload 2>/dev/null || true
+if command -v systemctl >/dev/null 2>&1; then $SUDO systemctl daemon-reload 2>/dev/null || true; fi
 ok "service removed"
 
 # ── binary ─────────────────────────────────────────────────────────────────
